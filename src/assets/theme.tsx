@@ -1,7 +1,8 @@
 import {createTheme} from '@shopify/restyle';
+import {AppFonts} from './AppFonts';
 
 export const palette = {
-  gray50: '#F4F4F4',
+  gray50: '#F8F8F8',
   gray100: '#E4E4E4',
   gray200: '#D7D7D7',
   gray300: '#C2C2C2',
@@ -18,6 +19,8 @@ export const palette = {
   globalwhite: '#ffffff',
   globalBlack: '#000000',
   black: '#212124',
+  red: '#FF4646',
+  borderColor: '#CFC9DF',
 };
 
 export const theme = createTheme({
@@ -38,6 +41,8 @@ export const theme = createTheme({
     globalWhite: palette.globalwhite,
     globalBlack: palette.globalBlack,
     black: palette.black,
+    error: palette.red,
+    borderColor: palette.borderColor,
   },
   spacing: {
     zero: 0,
@@ -73,6 +78,9 @@ export const theme = createTheme({
     xxxl: 36,
     high: 100,
     ultraHigh: 150,
+  },
+  textVariants: {
+    defaults: {},
   },
   breakpoints: {
     shortPhone: {
