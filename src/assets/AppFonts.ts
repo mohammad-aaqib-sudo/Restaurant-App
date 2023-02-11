@@ -1,0 +1,15 @@
+export const AppFonts = {
+  MulishLight: 'Mulish-Light',
+  MulishLightItalic: 'Mulish-LightItalic',
+  MulishRegular: 'Mulish-Regular',
+  MulishMedium: 'Mulish-Medium',
+  MulishMediumItalic: 'Mulish-MediumItalic',
+  MulishSemiBold: 'Mulish-SemiBold',
+  MulishSemiBoldItalic: 'Mulish-SemiBoldItalic',
+  MulishBold: 'Mulish-Bold',
+  MulishBoldItalic: 'Mulish-BoldItalic',
+  MulishExtraBold: 'Mulish-ExtraBold',
+  MulishExtraBoldItalic: 'Mulish-ExtraBoldItalic',
+  MulishBlack: 'Mulish-Black',
+  MulishBlackItalic: 'Mulish-BlackItalic',
+};

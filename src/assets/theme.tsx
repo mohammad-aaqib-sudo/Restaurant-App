@@ -1,0 +1,97 @@
+import {createTheme} from '@shopify/restyle';
+
+export const palette = {
+  gray50: '#F4F4F4',
+  gray100: '#E4E4E4',
+  gray200: '#D7D7D7',
+  gray300: '#C2C2C2',
+  gray400: '#B5B5B5',
+  gray: '#A1A1A1',
+  gray500: '#A1A1A1',
+  gray600: '#8A8A8A',
+  gray700: '#676767',
+  gray800: '#454545',
+  gray900: '#222222',
+
+  primary: '#25dd93',
+  yellow: '#ffc700',
+  globalwhite: '#ffffff',
+  globalBlack: '#000000',
+  black: '#212124',
+};
+
+export const theme = createTheme({
+  colors: {
+    gray50: palette.gray50,
+    gray100: palette.gray100,
+    gray200: palette.gray200,
+    gray300: palette.gray300,
+    gray400: palette.gray400,
+    gray500: palette.gray500,
+    gray600: palette.gray600,
+    gray700: palette.gray700,
+    gray800: palette.gray800,
+    gray900: palette.gray900,
+
+    primary: palette.primary,
+    yellow: palette.yellow,
+    globalWhite: palette.globalwhite,
+    globalBlack: palette.globalBlack,
+    black: palette.black,
+  },
+  spacing: {
+    zero: 0,
+    minusxl: -20,
+    minusl: -10,
+    minusxs: -4,
+    xxxxxxs: 1,
+    xxxxxs: 2,
+    xxxxs: 4,
+    xxxs: 6,
+    xxs: 8,
+    xs: 12,
+    ms: 14,
+    s: 16,
+    m: 20,
+    mm: 22,
+    l: 24,
+    xl: 28,
+    xxl: 32,
+    xxxl: 36,
+  },
+  borderRadii: {
+    zero: 0,
+    xxxxs: 2,
+    xxxs: 4,
+    xxs: 6,
+    xs: 8,
+    s: 10,
+    m: 16,
+    l: 20,
+    xl: 24,
+    xxl: 28,
+    xxxl: 36,
+    high: 100,
+    ultraHigh: 150,
+  },
+  breakpoints: {
+    shortPhone: {
+      width: 0,
+      height: 0,
+    },
+    midPhone: {
+      width: 0,
+      height: 700,
+    },
+    longPhone: {
+      width: 0,
+      height: 900,
+    },
+    phoneSm: 0,
+    phone: 378,
+    tablet: 769,
+    tabletLg: 1024,
+  },
+});
+
+export type Theme = typeof theme;
