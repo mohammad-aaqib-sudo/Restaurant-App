@@ -130,7 +130,7 @@ const CustomTextInput: React.FC<Props> = (props: Props) => {
 
         {props.type === InputType.WITH_ICON ? (
           <CustomPressable
-            onPress={() => setSecure(o => !o)}
+            onPress={() => setSecure(prev => !prev)}
             flex={1}
             backgroundColor={'globalWhite'}
             alignItems="center"

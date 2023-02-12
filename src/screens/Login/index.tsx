@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import {
-  Dimensions,
+  Alert,
   Keyboard,
   KeyboardAvoidingView,
   Platform,
@@ -11,24 +11,44 @@ import {
 } from 'react-native';
 
 import {Formik} from 'formik';
+import {useDispatch} from 'react-redux';
 
 import CustomView from '../../components/CustomView';
 import {globalStyles} from '../../utils/globalStyles';
 import CustomTextInput from '../../components/CustomTextIput';
 import {theme} from '../../assets/theme';
 import {signInSchema} from '../../validations/validations';
-import {InputType} from '../../utils/constants';
+import {InputType, user} from '../../utils/constants';
 import CustomText from '../../components/CustomText';
 import {AppFonts} from '../../assets/AppFonts';
 import PrimaryButton from '../../components/PrimaryButton';
+import {FormikValues} from '../../../node_modules/formik/dist/types.d';
+import {LOGIN_FAIL, LOGIN_SUCCESS} from '../../utils/actionTypes';
+import Message from '../../components/Message';
 
 type LoginProps = {};
 
-const {height} = Dimensions.get('screen');
-
 const Login: React.FC<LoginProps> = ({}) => {
+  const [error, setError] = useState(false);
   const emailRef = useRef<TextInputProps | any>();
   const passwordRef = useRef<TextInputProps | any>();
+  const dispatch = useDispatch();
+
+  const handleSignin = async (values: FormikValues) => {
+    setError(false);
+    if (values.email === user.email && values.password === user.password) {
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: values,
+      });
+    } else {
+      setError(true);
+      dispatch({
+        type: LOGIN_FAIL,
+      });
+    }
+  };
+
   return (
     <>
       <SafeAreaView style={globalStyles.safeAreaContainer} />
@@ -55,7 +75,7 @@ const Login: React.FC<LoginProps> = ({}) => {
               password: '',
             }}
             enableReinitialize
-            onSubmit={() => {}}>
+            onSubmit={handleSignin}>
             {({
               handleChange,
               handleBlur,
@@ -70,7 +90,6 @@ const Login: React.FC<LoginProps> = ({}) => {
                 paddingHorizontal={'m'}
                 paddingVertical={'xl'}
                 elevation={1}
-                // height={{shortPhone: height * 0.6, midPhone: height * 0.47}}
                 borderRadius={'m'}>
                 <CustomView rowGap={'xs'}>
                   <CustomText
@@ -158,6 +177,7 @@ const Login: React.FC<LoginProps> = ({}) => {
           </Formik>
         </ScrollView>
       </KeyboardAvoidingView>
+      {error && <Message message={'Invalid Credentials'} />}
     </>
   );
 };

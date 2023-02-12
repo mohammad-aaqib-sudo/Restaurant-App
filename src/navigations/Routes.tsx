@@ -12,6 +12,7 @@ import {
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
 import {NativeStackNavigatorProps} from '@react-navigation/native-stack/lib/typescript/src/types';
+import {useSelector} from 'react-redux';
 
 import AuthStack from './AuthStack';
 import MainStack from './MainStack';
@@ -37,6 +38,9 @@ const options = {
   headerShown: false,
 };
 const Routes: React.FC<RoutesProps> = ({}) => {
+  const {isAuthenticated} = useSelector((state: any) => state.loginReducer);
+  console.log(isAuthenticated);
+
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -45,7 +49,7 @@ const Routes: React.FC<RoutesProps> = ({}) => {
           animation: 'slide_from_right',
           animationDuration: 500,
         }}>
-        {!!false && true ? <>{MainStack(Stack)}</> : <>{AuthStack(Stack)}</>}
+        {isAuthenticated ? <>{MainStack(Stack)}</> : <>{AuthStack(Stack)}</>}
       </Stack.Navigator>
     </NavigationContainer>
   );
