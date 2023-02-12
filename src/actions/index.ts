@@ -1,3 +1,4 @@
+import Realm from 'realm';
 import {LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT} from '../utils/actionTypes';
 import {user} from '../utils/constants';
 

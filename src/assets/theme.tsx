@@ -3,7 +3,7 @@ import {AppFonts} from './AppFonts';
 
 export const palette = {
   gray50: '#F8F8F8',
-  gray100: '#E4E4E4',
+  gray100: '#f6f8fa',
   gray200: '#D7D7D7',
   gray300: '#C2C2C2',
   gray400: '#B5B5B5',

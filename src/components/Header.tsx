@@ -24,7 +24,7 @@ const Header: React.FC<HeaderProps> = ({heading}) => {
       alignItems={'center'}
       justifyContent={'space-around'}>
       <CustomPressable
-        flex={1}
+        flex={0.2}
         onPress={() => (navigation.canGoBack() ? navigation.goBack() : {})}>
         {navigation.canGoBack() && (
           <CustomText
@@ -35,9 +35,9 @@ const Header: React.FC<HeaderProps> = ({heading}) => {
           </CustomText>
         )}
       </CustomPressable>
-      <CustomView flex={1} alignItems={'center'} justifyContent={'center'}>
+      <CustomView flex={0.6} alignItems={'center'} justifyContent={'center'}>
         <CustomText
-          fontSize={16}
+          fontSize={20}
           color={'globalWhite'}
           fontFamily={AppFonts.MulishBold}>
           {heading}
@@ -45,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({heading}) => {
       </CustomView>
       <CustomPressable
         onPress={() => dispatch({type: LOGOUT})}
-        flex={1}
+        flex={0.2}
         alignItems={'flex-end'}
         justifyContent={'center'}>
         <CustomText
