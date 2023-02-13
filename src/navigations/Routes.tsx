@@ -39,7 +39,6 @@ const options = {
 };
 const Routes: React.FC<RoutesProps> = ({}) => {
   const {isAuthenticated} = useSelector((state: any) => state.loginReducer);
-  console.log(isAuthenticated);
 
   return (
     <NavigationContainer>

@@ -3,7 +3,6 @@ import {LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT} from '../utils/actionTypes';
 const initialState = {
   user: '',
   isAuthenticated: false,
-  success: false,
 };
 
 export const loginReducer = (
@@ -16,7 +15,6 @@ export const loginReducer = (
         ...state,
         user: payload?.email,
         isAuthenticated: true,
-        success: true,
       };
       return state;
     case LOGIN_FAIL:
@@ -24,7 +22,6 @@ export const loginReducer = (
         ...state,
         user: '',
         isAuthenticated: false,
-        success: false,
       };
       return state;
     case LOGOUT:
