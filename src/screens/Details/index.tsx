@@ -55,6 +55,7 @@ const Details: React.FC<DetailsProps> = ({route}) => {
   });
   const [error, setError] = useState(false);
 
+  // This function has been used to get the user's current location from device location.
   const getLocation = () => {
     setLoader(true);
     GetLocation.getCurrentPosition({
@@ -85,6 +86,7 @@ const Details: React.FC<DetailsProps> = ({route}) => {
       });
   };
 
+  // This function has been used to check whether the user has given location permission or not, if not then the user will be asked for location permission.
   const getLocationPermission = async () => {
     const checkLocationPermission = await PermissionsAndroid.check(
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
@@ -173,6 +175,7 @@ const Details: React.FC<DetailsProps> = ({route}) => {
             }}
             image={require('../../assets/images/shop-pin.png')}
             ref={destinationMakerRef}>
+            {/* The Callout component is used to show the resaturant detail on maps screen. By default its hidden and opened when we click on destionation marker */}
             <Callout tooltip={true}>
               <CalloutCard item={restaurantDetail} />
             </Callout>

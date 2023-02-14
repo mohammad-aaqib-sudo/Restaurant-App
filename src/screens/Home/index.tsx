@@ -45,6 +45,7 @@ const Home: React.FC<HomeProps> = ({}) => {
     } catch (err) {}
   };
 
+  // This function has been used to fetch the data from database.
   const getDataFromDatabase = async () => {
     try {
       const response = await realm.objects(RESTAURANT_SCHEMA);
@@ -55,6 +56,7 @@ const Home: React.FC<HomeProps> = ({}) => {
     }
   };
 
+  // This function has been used to fetch the data from api and store it in our database.
   const fetchAndStoreToDatabase = ({pageNumber = 1}) => {
     setLoader(true);
     setPage(pageNumber);

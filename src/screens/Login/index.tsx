@@ -33,6 +33,7 @@ const Login: React.FC<LoginProps> = ({}) => {
   const passwordRef = useRef<TextInputProps | any>();
   const dispatch = useDispatch();
 
+  // This function has been used to check the credentials of the user and based on credentials we will authenticate and authorize the user.
   const handleSignin = async (values: FormikValues) => {
     setError(false);
     if (values.email === user.email && values.password === user.password) {
