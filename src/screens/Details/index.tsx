@@ -12,6 +12,9 @@ import Header from '../../components/Header';
 import MapView, {Callout, Marker} from 'react-native-maps';
 import {theme} from '../../assets/theme';
 import CalloutCard from '../../components/CalloutCard';
+import CustomText from '../../components/CustomText';
+import {AppFonts} from '../../assets/AppFonts';
+import {GOOGLE_MAPS_APIKEY} from '../../utils/constants';
 
 type DetailsProps = {
   route: any;
@@ -28,7 +31,6 @@ const {width, height} = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
-const GOOGLE_MAPS_APIKEY = 'AIzaSyBU2Uh15MMVujrenUTiv8p2425wUkzJYb8';
 
 const Details: React.FC<DetailsProps> = ({route}) => {
   const restaurant = route?.params?.restaurant;
@@ -51,6 +53,7 @@ const Details: React.FC<DetailsProps> = ({route}) => {
     images: '',
     rating: 0,
   });
+  const [error, setError] = useState(false);
 
   const getLocation = () => {
     setLoader(true);
@@ -98,6 +101,8 @@ const Details: React.FC<DetailsProps> = ({route}) => {
           getLocation();
         } else {
           console.log('permission denied');
+          setLoader(false);
+          setError(true);
         }
       } catch (err) {
         console.log(err);
@@ -135,6 +140,16 @@ const Details: React.FC<DetailsProps> = ({route}) => {
 
   return loader ? (
     <ActivityIndicator />
+  ) : error ? (
+    <CustomView flex={1} alignItems={'center'} justifyContent={'center'}>
+      <CustomText
+        fontSize={20}
+        fontFamily={AppFonts.MulishBold}
+        color={'black'}
+        textAlign={'center'}>
+        Please give location permission to view maps
+      </CustomText>
+    </CustomView>
   ) : (
     <>
       <Header heading="Map View" />

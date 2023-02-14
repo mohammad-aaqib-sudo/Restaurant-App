@@ -1,3 +1,5 @@
+export const GOOGLE_MAPS_APIKEY = 'AIzaSyBU2Uh15MMVujrenUTiv8p2425wUkzJYb8';
+
 export const navigationStrings = {
   LOGIN: 'Login',
   HOME: 'Home',
